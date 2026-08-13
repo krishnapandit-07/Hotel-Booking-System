@@ -1,29 +1,51 @@
 :root {
-    --primary-color: #ff6a00;
-    --main-text: #F5F5F5;
-    --main-bg: #0D1117;
+    --bg-color: #0D1117;
+    --secondary-bg: #161B22;
+    --card-bg: #1C2128;
+    --primary-color: #FF6A00;
+    --primary-hover: #FF8533;
+    --text-color: #F5F5F5;
+    --secondary-text: #A7ADB5;
+    --border-color: #30363D;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI';
 }
 
 body {
-    background-color: var(--main-bg);
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 header {
-    color: var(--main-text);
-    background-color: var(--primary-color);
+    background-color: var(--secondary-bg);
+    height: 50px;
 
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .logo {
     display: flex;
+    gap: 5px;
+
+    align-items: center;
+    height: 100%;
+}
+
+.logo h1 a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.logo img {
+    height: 100%;
+    display: block;
 }
 
 nav ul {
@@ -35,6 +57,21 @@ nav ul li {
     list-style: none;
 }
 
-nav ul li a {
-    color: var(--main-text);
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+main {
+    background-color: var(--bg-color);
+}
+
+footer {
+    background-color: var(--secondary-bg);
+    color: var(--secondary-text);
 }
