@@ -1,0 +1,40 @@
+:root {
+    --primary-color: #ff6a00;
+    --main-text: #F5F5F5;
+    --main-bg: #0D1117;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--main-bg);
+}
+
+header {
+    color: var(--main-text);
+    background-color: var(--primary-color);
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.logo {
+    display: flex;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    color: var(--main-text);
+}
