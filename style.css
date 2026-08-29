@@ -2,10 +2,13 @@
     --bg-color: #0D1117;
     --secondary-bg: #161B22;
     --card-bg: #1C2128;
+
     --primary-color: #FF6A00;
     --primary-hover: #FF8533;
+
     --text-color: #F5F5F5;
     --secondary-text: #A7ADB5;
+
     --border-color: #30363D;
 }
 
@@ -13,7 +16,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI';
+    font-family: 'Segoe UI', sans-serif;
 }
 
 body {
@@ -23,19 +26,36 @@ body {
 
 header {
     background-color: var(--secondary-bg);
-    height: 50px;
+    height: 65px;
 
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+
+    padding: 0 5%;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .logo {
     display: flex;
-    gap: 5px;
-
     align-items: center;
+    gap: 8px;
     height: 100%;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    width: 50px;
+    display: block;
+}
+
+.logo h1 {
+    font-size: 25px;
 }
 
 .logo h1 a {
@@ -43,13 +63,9 @@ header {
     text-decoration: none;
 }
 
-.logo img {
-    height: 100%;
-    display: block;
-}
-
 nav ul {
     display: flex;
+    align-items: center;
     gap: 30px;
 }
 
@@ -60,7 +76,9 @@ nav ul li {
 nav a {
     color: var(--text-color);
     text-decoration: none;
-    font-size: 20px;
+    font-size: 16px;
+
+    transition: color 0.2s ease;
 }
 
 nav a:hover {
@@ -69,9 +87,470 @@ nav a:hover {
 
 main {
     background-color: var(--bg-color);
+    min-height: calc(100vh - 65px);
 }
 
 footer {
     background-color: var(--secondary-bg);
     color: var(--secondary-text);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    background-color: var(--bg-color);
+}
+
+/* Hero */
+
+.hero {
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 5%;
+    background-color: var(--secondary-bg);
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 1100px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    color: var(--secondary-text);
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+
+.search-box {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px;
+
+    display: flex;
+    align-items: end;
+    gap: 12px;
+
+    text-align: left;
+}
+
+.search-field {
+    flex: 1;
+}
+
+.search-field label {
+    display: block;
+    color: var(--secondary-text);
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.search-field input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+}
+
+.search-box button,
+.hotel-bottom button,
+.offer button {
+    border: none;
+    border-radius: 6px;
+    padding: 12px 20px;
+
+    background-color: var(--primary-color);
+    color: white;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-box button:hover,
+.hotel-bottom button:hover,
+.offer button:hover {
+    background-color: var(--primary-hover);
+}
+
+
+/* Common Section */
+
+.section {
+    padding: 55px 5%;
+    max-width: 1300px;
+    margin: auto;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.section-header h2 {
+    font-size: 28px;
+}
+
+.section-header a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.section-header a:hover {
+    color: var(--primary-hover);
+}
+
+
+/* Destinations */
+
+.destination-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.destination-card {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: var(--card-bg);
+}
+
+.destination-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.75;
+    transition: transform 0.3s ease;
+}
+
+.destination-card:hover img {
+    transform: scale(1.05);
+}
+
+.destination-card div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+}
+
+.destination-card h3 {
+    font-size: 22px;
+}
+
+.destination-card p {
+    color: var(--secondary-text);
+    font-size: 14px;
+}
+
+
+/* Hotels */
+
+.hotel-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.hotel-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.hotel-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-color);
+}
+
+.hotel-card > img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.hotel-info {
+    padding: 18px;
+}
+
+.hotel-info h3 {
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+.location {
+    color: var(--secondary-text);
+}
+
+.rating {
+    color: var(--primary-color);
+    margin: 10px 0;
+}
+
+.hotel-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hotel-bottom strong {
+    font-size: 18px;
+}
+
+
+/* Offer */
+
+.offer {
+    margin: 20px 5% 55px;
+    padding: 35px 45px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 10px;
+}
+
+.offer h2 {
+    margin-bottom: 8px;
+}
+
+.offer p {
+    color: var(--secondary-text);
+}
+
+
+/* Why HotelBook */
+
+.why-section {
+    padding-top: 20px;
+    padding-bottom: 70px;
+}
+
+.why-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.why-card {
+    padding: 25px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+.why-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.why-card p {
+    color: var(--secondary-text);
+    line-height: 1.5;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background-color: var(--secondary-bg);
+    color: var(--secondary-text);
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    max-width: 1300px;
+    margin: auto;
+    padding: 50px 5%;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+}
+
+.footer-about h2 {
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.footer-about p {
+    max-width: 350px;
+    line-height: 1.5;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links h3 {
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.footer-links a {
+    color: var(--secondary-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    /* Header */
+    header {
+        height: auto;
+        min-height: 65px;
+        padding: 10px 5%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo {
+        height: auto;
+    }
+
+    nav ul {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 15px;
+    }
+
+
+    /* Hero */
+    .hero {
+        min-height: auto;
+        padding: 45px 5%;
+    }
+
+    .hero h2 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    .search-box {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .search-box button {
+        width: 100%;
+    }
+
+
+    /* Common Section */
+    .section {
+        padding: 40px 5%;
+    }
+
+    .section-header {
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .section-header h2 {
+        font-size: 24px;
+    }
+
+
+    /* Destinations */
+    .destination-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .destination-card {
+        height: 180px;
+    }
+
+
+    /* Hotels */
+    .hotel-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .hotel-card > img {
+        height: 220px;
+    }
+
+
+    /* Offer */
+    .offer {
+        margin: 10px 5% 40px;
+        padding: 25px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .offer button {
+        width: 100%;
+    }
+
+
+    /* Why HotelBook */
+    .why-section {
+        padding-top: 10px;
+        padding-bottom: 50px;
+    }
+
+    .why-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+
+    /* Footer */
+    .footer-content {
+        padding: 40px 5%;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-about p {
+        max-width: 100%;
+    }
 }
